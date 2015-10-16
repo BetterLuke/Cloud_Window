@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/menu_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <ImageView
+            android:id="@+id/left_menu_iconImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/left_menu_icon_userimagecircle"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:id="@+id/left_menu_iconCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/left_menu_icon_userimage"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/menu_equipment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/menu_button_selector_noline">
+            <TextView
+                android:id="@+id/menu_equipment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备管理"
+                android:textSize="25sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/left_menu_icon_equipmentmanager"
+                android:layout_toLeftOf="@id/menu_equipment_text"
+                android:layout_alignBottom="@id/menu_equipment_text"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menu_account_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/menu_button_selector_noline">
+            <TextView
+                android:id="@+id/menu_account_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="账户信息"
+                android:textColor="#ffffff"
+                android:textSize="25sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/menu_account_text"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/menu_account_text"
+                android:src="@drawable/left_menu_icon_account"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/menu_history_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/menu_button_selector_noline">
+            <TextView
+                android:id="@+id/menu_history_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="账户信息"
+                android:textColor="#ffffff"
+                android:textSize="25sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/menu_history_text"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/menu_history_text"
+                android:src="@drawable/left_menu_icon_history"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <Button
+            android:id="@+id/left_menu_settingButton"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/menu_button_selector"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="设置"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/left_menu_exitButton"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/menu_button_selector"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/left_menu_settingButton"
+            android:layout_marginTop="15dp"
+            android:text="退出"
+            android:textSize="25sp"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+</LinearLayout>

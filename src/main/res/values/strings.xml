@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Cloud Window</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <drawable name="menu_background">#0a0e12</drawable>
+    <drawable name="menu_button_click">#19232b</drawable>
+    <drawable name="menu_text">#19232b</drawable>
+</resources>
