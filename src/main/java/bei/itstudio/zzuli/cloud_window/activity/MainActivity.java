@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import bei.itstudio.zzuli.cloud_window.R;
+import bei.itstudio.zzuli.cloud_window.view.CircleImageView;
 
 public class MainActivity extends Activity implements OnTouchListener {
 
@@ -83,20 +84,53 @@ public class MainActivity extends Activity implements OnTouchListener {
 
 
     //侧滑栏的控件
+    CircleImageView userImageView;
     private Button menu_exitButton;
     private Button menu_settingButton;
     private View menu_equipment;
     private View menu_history;
     private View menu_account;
 
+    private Button content_menuButton;
+    private Button content_notifyButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initValues();
+        content.setOnTouchListener(this);
+        initContent();
+        initContentEvent();
         initMenu();
         initMenuEvent();
-        content.setOnTouchListener(this);
+
+    }
+
+    /**
+     * 为Mcontent中的按钮添加点击事件
+     */
+    private void initContentEvent() {
+        content_menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollToMenu();
+            }
+        });
+        content_notifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    /**
+     * 初始化content内的控件
+     */
+    private void initContent() {
+        content_menuButton = (Button) content.findViewById(R.id.menuButton);
+        content_notifyButton = (Button) content.findViewById(R.id.notifyButton);
     }
 
     /**
@@ -104,6 +138,7 @@ public class MainActivity extends Activity implements OnTouchListener {
      * @param
      */
     private void initMenu() {
+        userImageView = (CircleImageView) menu.findViewById(R.id.menu_userimageview);
         menu_settingButton = (Button) menu.findViewById(R.id.left_menu_settingButton);
         menu_exitButton = (Button) menu.findViewById(R.id.left_menu_exitButton);
         menu_equipment = menu.findViewById(R.id.menu_equipment_layout);
@@ -115,6 +150,12 @@ public class MainActivity extends Activity implements OnTouchListener {
      * 为Menu中的按钮添加点击事件
      */
     private void initMenuEvent() {
+        userImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         menu_equipment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
