@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import bei.itstudio.zzuli.cloud_window.R;
@@ -83,7 +85,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     private VelocityTracker mVelocityTracker;
 
 
-    //侧滑栏的控件
+    //侧滑栏的控件。
     CircleImageView userImageView;
     private Button menu_exitButton;
     private Button menu_settingButton;
@@ -91,8 +93,9 @@ public class MainActivity extends Activity implements OnTouchListener {
     private View menu_history;
     private View menu_account;
 
-    private Button content_menuButton;
-    private Button content_notifyButton;
+    //content的控件。
+    private ImageButton content_menuButton;
+    private ImageButton content_notifyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +117,13 @@ public class MainActivity extends Activity implements OnTouchListener {
         content_menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scrollToMenu();
+                if (!isMenuVisible){
+                    scrollToMenu();
+
+                } else {
+                    scrollToContent();
+                }
+
             }
         });
         content_notifyButton.setOnClickListener(new View.OnClickListener() {
@@ -129,8 +138,8 @@ public class MainActivity extends Activity implements OnTouchListener {
      * 初始化content内的控件
      */
     private void initContent() {
-        content_menuButton = (Button) content.findViewById(R.id.menuButton);
-        content_notifyButton = (Button) content.findViewById(R.id.notifyButton);
+        content_menuButton = (ImageButton) content.findViewById(R.id.content_menuButton);
+        content_notifyButton = (ImageButton) content.findViewById(R.id.content_notifyButton);
     }
 
     /**
@@ -234,6 +243,10 @@ public class MainActivity extends Activity implements OnTouchListener {
             case MotionEvent.ACTION_UP:
                 // 手指抬起时，进行判断当前手势的意图，从而决定是滚动到menu界面，还是滚动到content界面
                 xUp = event.getRawX();
+
+                Log.d("ROWX",xUp+"");
+                Log.d("ROWX",(xUp-menuParams.width)+"");
+
                 if (wantToShowMenu()) {
                     if (shouldScrollToMenu()) {
                         scrollToMenu();
@@ -259,7 +272,8 @@ public class MainActivity extends Activity implements OnTouchListener {
      * @return 当前手势想显示content返回true，否则返回false。
      */
     private boolean wantToShowContent() {
-        return xUp - xDown < 0 && isMenuVisible;
+
+        return (xUp - xDown < 0 && isMenuVisible);
     }
 
     /**

@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="账户信息"
+                android:text="历史记录"
                 android:textColor="#ffffff"
                 android:textSize="25sp" />
             <ImageView
