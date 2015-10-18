@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3">
-        <!--
-      <ImageView
+
+     <!-- <ImageView
             android:id="@+id/left_menu_iconImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,93 +25,100 @@
             android:src="@drawable/left_menu_icon_userimage"
             android:layout_centerInParent="true"
             android:paddingTop="28dp"
-            android:paddingLeft="8dp"/>
-        -->
+            android:paddingLeft="8dp"/>-->
+
         <bei.itstudio.zzuli.cloud_window.view.CircleImageView
             android:id="@+id/menu_userimageview"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:civ_border_width="2dp"
             app:civ_border_color="#fff"
-            android:layout_centerInParent="true"
-            android:src="@drawable/left_menu_icon_userimage"/>
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/left_menu_icon_userimage"
+            android:layout_marginTop="25dp"/>
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <RelativeLayout
             android:id="@+id/menu_equipment_layout"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@drawable/menu_button_selector_noline">
-            <TextView
-                android:id="@+id/menu_equipment_text"
+            android:layout_height="70dp"
+            android:background="@drawable/menu_button_selector_noline"
+            android:layout_marginTop="10dp">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="设备管理"
-                android:textSize="25sp"
-                android:textColor="#ffffff"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/left_menu_icon_equipmentmanager"
-                android:layout_toLeftOf="@id/menu_equipment_text"
-                android:layout_alignBottom="@id/menu_equipment_text"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"/>
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/left_menu_icon_equipmentmanager"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设备管理"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginLeft="15dp"/>
+            </LinearLayout>
             </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/menu_account_layout"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:background="@drawable/menu_button_selector_noline">
-            <TextView
-                android:id="@+id/menu_account_text"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="账户信息"
-                android:textColor="#ffffff"
-                android:textSize="25sp" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/menu_account_text"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@id/menu_account_text"
-                android:src="@drawable/left_menu_icon_account"
-                android:layout_marginTop="10dp"/>
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/left_menu_icon_account"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账户信息"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginLeft="15dp"/>
+            </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/menu_history_layout"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:background="@drawable/menu_button_selector_noline">
-            <TextView
-                android:id="@+id/menu_history_text"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="历史记录"
-                android:textColor="#ffffff"
-                android:textSize="25sp" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/menu_history_text"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@id/menu_history_text"
-                android:src="@drawable/left_menu_icon_history"
-                android:layout_marginTop="10dp"/>
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/left_menu_icon_history"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="历史记录"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginLeft="15dp"
+                    />
+            </LinearLayout>
         </RelativeLayout>
 
 
@@ -129,9 +136,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="设置"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textColor="#ffffff"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="18dp"/>
         <Button
             android:id="@+id/left_menu_exitButton"
             android:layout_width="150dp"
@@ -141,7 +148,7 @@
             android:layout_below="@id/left_menu_settingButton"
             android:layout_marginTop="15dp"
             android:text="退出"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textColor="#ffffff"/>
     </RelativeLayout>
 

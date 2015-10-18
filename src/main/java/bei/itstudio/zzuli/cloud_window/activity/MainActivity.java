@@ -1,9 +1,9 @@
 package bei.itstudio.zzuli.cloud_window.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import bei.itstudio.zzuli.cloud_window.R;
 import bei.itstudio.zzuli.cloud_window.view.CircleImageView;
 
-public class MainActivity extends Activity implements OnTouchListener {
+public class MainActivity extends FragmentActivity implements OnTouchListener {
 
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
@@ -42,7 +42,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     /**
      * menu完全显示时，留给content的宽度值。
      */
-    private int menuPadding = 120;
+    private int menuPadding = 140;
 
     /**
      * 主内容的布局。
