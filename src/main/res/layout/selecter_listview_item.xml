@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="70dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全部打开"
+        android:textSize="28sp"
+        android:layout_marginLeft="40dp"
+        android:layout_centerVertical="true"/>
+
+    <ImageView
+        android:id="@+id/switch_off"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/switch_off"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"/>
+
+    <ImageView
+        android:id="@+id/right_guide"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/right_guide"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/switch_on"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/switch_on"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

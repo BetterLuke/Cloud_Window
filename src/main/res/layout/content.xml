@@ -9,16 +9,131 @@
    <fragment
        android:id="@+id/state_fragment"
        android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:layout_weight="4"
-       android:name="bei.itstudio.zzuli.cloud_window.fragment.StateFragment"/>
+       android:layout_height="280dp"
+       android:name="bei.itstudio.zzuli.cloud_window.fragment.StateFragment" />
 
-    <fragment
-        android:id="@+id/selecter_fragment"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="#2d3644">
+
+       <RelativeLayout
+           android:id="@+id/selecter_vedio_layout"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="match_parent">
+           <ImageView
+               android:layout_width="35dp"
+               android:layout_height="wrap_content"
+               android:src="@drawable/selecter_vedio"
+               android:layout_centerHorizontal="true"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="监控"
+               android:textColor="#8a8b88"
+               android:layout_centerHorizontal="true"
+               android:layout_alignParentBottom="true"
+               android:layout_marginBottom="15dp"
+               />
+           <ImageView
+               android:id="@+id/selecter_vedio_cursor"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:src="@drawable/selecter_cursor"
+               />
+       </RelativeLayout>
+
+        <TextView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#8a8a8a"
+            />
+
+        <RelativeLayout
+            android:id="@+id/selecter_airconfition_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="65dp"
+                android:src="@drawable/selecter_aircondition"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="空调"
+                android:textColor="#8a8b88"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                />
+            <ImageView
+                android:id="@+id/selecter_aircondition_cursor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/selecter_cursor"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#8a8a8a"/>
+
+        <RelativeLayout
+            android:id="@+id/selecter_light_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selecter_light"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="灯光"
+                android:textColor="#8a8b88"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                />
+            <ImageView
+                android:id="@+id/selecter_light_cursor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/selecter_cursor"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/myViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
-        android:name="bei.itstudio.zzuli.cloud_window.fragment.SelecterFragment"/>
-
+        android:layout_weight="1"
+        android:flipInterval="30" >
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>
