@@ -25,12 +25,16 @@ public class StateFragment extends Fragment {
         return  view;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        temperatureValue = (TextView) view.findViewById(R.id.state_fragment_temperatureValue);
+        humidityValue = (TextView) view.findViewById(R.id.state_fragment_humidityValue);
+    }
 
     public void updateState(StateInformation stateInformation){
         String temperature = stateInformation.getTemperature();
         String humidity = stateInformation.getHumidity();
-        temperatureValue = (TextView) view.findViewById(R.id.state_fragment_temperatureValue);
-        humidityValue = (TextView) view.findViewById(R.id.state_fragment_humidityValue);
         temperatureValue.setText(temperature);
         humidityValue.setText(humidity);
     }

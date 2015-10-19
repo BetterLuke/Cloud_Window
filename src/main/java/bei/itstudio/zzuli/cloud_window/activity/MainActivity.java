@@ -12,6 +12,7 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import bei.itstudio.zzuli.cloud_window.R;
@@ -42,7 +43,7 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     /**
      * menu完全显示时，留给content的宽度值。
      */
-    private int menuPadding = 140;
+    private int menuPadding = 120;
 
     /**
      * 主内容的布局。
@@ -96,6 +97,15 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     //content的控件。
     private ImageButton content_menuButton;
     private ImageButton content_notifyButton;
+    private ImageView content_notify_redPoint;
+    private View selecter_vedio;
+    private View selecter_aircondition;
+    private View selecter_light;
+    private ImageView selecter_vedio_cursor;
+    private ImageView selecter_aircondition_cursor;
+    private ImageView selecter_light_cursor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +139,37 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
         content_notifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (content_notify_redPoint.getVisibility() == View.VISIBLE){
+                    content_notify_redPoint.setVisibility(View.INVISIBLE);
+                }
+                else{
+                    content_notify_redPoint.setVisibility(View.VISIBLE);
 
+                }
+            }
+        });
+        selecter_light.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selecter_light_cursor.setVisibility(View.VISIBLE);
+                selecter_aircondition_cursor.setVisibility(View.INVISIBLE);
+                selecter_vedio_cursor.setVisibility(View.INVISIBLE);
+            }
+        });
+        selecter_vedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selecter_light_cursor.setVisibility(View.INVISIBLE);
+                selecter_aircondition_cursor.setVisibility(View.INVISIBLE);
+                selecter_vedio_cursor.setVisibility(View.VISIBLE);
+            }
+        });
+        selecter_aircondition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selecter_light_cursor.setVisibility(View.INVISIBLE);
+                selecter_aircondition_cursor.setVisibility(View.VISIBLE);
+                selecter_vedio_cursor.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -140,6 +180,13 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     private void initContent() {
         content_menuButton = (ImageButton) content.findViewById(R.id.content_menuButton);
         content_notifyButton = (ImageButton) content.findViewById(R.id.content_notifyButton);
+        content_notify_redPoint = (ImageView) content.findViewById(R.id.notify_red_point);
+        selecter_aircondition = content.findViewById(R.id.selecter_airconfition_layout);
+        selecter_light= content.findViewById(R.id.selecter_light_layout);
+        selecter_vedio= content.findViewById(R.id.selecter_vedio_layout);
+        selecter_light_cursor = (ImageView) content.findViewById(R.id.selecter_light_cursor);
+        selecter_vedio_cursor = (ImageView) content.findViewById(R.id.selecter_vedio_cursor);
+        selecter_aircondition_cursor = (ImageView) content.findViewById(R.id.selecter_aircondition_cursor);
     }
 
     /**
