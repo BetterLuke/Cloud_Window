@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import bei.itstudio.zzuli.cloud_window.model.ControlListViewItem;
 /**
  * Created by LUKE on 2015/10/19.
  */
-public class AirconditionFragment extends Fragment {
+public class AirconditionFragment extends Fragment implements AdapterView.OnItemClickListener{
 
     private View view;
     private ControlListViewAdapter adapter;
@@ -40,6 +42,7 @@ public class AirconditionFragment extends Fragment {
         view = inflater.inflate(R.layout.control_fragrment,container,false);
         vedioColListView = (ListView) view.findViewById(R.id.vedio_listview);
         vedioColListView.setAdapter(adapter);
+        vedioColListView.setOnItemClickListener(this);
         return view;
     }
 
@@ -56,6 +59,25 @@ public class AirconditionFragment extends Fragment {
         colList.add(col4);
         ControlListViewItem col5 = new ControlListViewItem("空调2", 1);
         colList.add(col5);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        ControlListViewItem controlListViewItem = colList.get(position);
+        ImageView switchOn = (ImageView) view.findViewById(R.id.switch_on);
+        ImageView switchOff = (ImageView) view.findViewById(R.id.switch_off);
+        view.refreshDrawableState();
+        if (controlListViewItem.getType() == ControlListViewItem.TYPE_RIGHT_GUIDE) {
+            //Intent intent = new Intent(this,)
+        } else if (controlListViewItem.getType() == ControlListViewItem.TYPE_SWITCH_OFF) {
+            switchOff.setVisibility(View.INVISIBLE);
+            switchOn.setVisibility(View.VISIBLE);
+            controlListViewItem.setType(1);
+        } else if (controlListViewItem.getType() == ControlListViewItem.TYPE_SWITCH_ON) {
+            switchOff.setVisibility(View.VISIBLE);
+            switchOn.setVisibility(View.INVISIBLE);
+            controlListViewItem.setType(0);
+        }
     }
 
 }

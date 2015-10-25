@@ -51,36 +51,33 @@ public class ControlListViewAdapter extends ArrayAdapter<ControlListViewItem>{
             switchOn.setVisibility(View.VISIBLE);
             switchOff.setVisibility(View.INVISIBLE);
             rightGuide.setVisibility(View.INVISIBLE);
-            switchOn.setOnClickListener(new View.OnClickListener() {
+            /*switchOn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switchOn.setVisibility(View.INVISIBLE);
                     switchOff.setVisibility(View.VISIBLE);
                     controlListViewItem.setType(ControlListViewItem.TYPE_SWITCH_OFF);
                 }
-            });
+            });*/
         } else if (controlListViewItem.getType() == ControlListViewItem.TYPE_SWITCH_OFF){
             //如果是关的状态，则显示开关为关的图标，隐藏开关为开的图标与右导航图标
             switchOn.setVisibility(View.INVISIBLE);
             switchOff.setVisibility(View.VISIBLE);
             rightGuide.setVisibility(View.INVISIBLE);
-            switchOff.setOnClickListener(new View.OnClickListener() {
+            /*switchOff.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switchOn.setVisibility(View.VISIBLE);
                     switchOff.setVisibility(View.INVISIBLE);
                     controlListViewItem.setType(ControlListViewItem.TYPE_SWITCH_ON);
                 }
-            });
+            });*/
         } else if (controlListViewItem.getType() == ControlListViewItem.TYPE_RIGHT_GUIDE){
             //如果是右导航，则显示右导航图标，隐藏开关为关的图标与开关为开的图标
             switchOn.setVisibility(View.INVISIBLE);
             switchOff.setVisibility(View.INVISIBLE);
             rightGuide.setVisibility(View.VISIBLE);
         }
-
-
-
         return view;
     }
 

@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:text="全部打开"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_marginLeft="40dp"
         android:layout_centerVertical="true"
         android:gravity="center"
@@ -15,7 +15,7 @@
 
     <ImageView
         android:id="@+id/switch_off"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:src="@drawable/switch_off"
         android:layout_centerVertical="true"
@@ -24,8 +24,8 @@
 
     <ImageView
         android:id="@+id/right_guide"
-        android:layout_width="25dp"
-        android:layout_height="30dp"
+        android:layout_width="22dp"
+        android:layout_height="25dp"
         android:src="@drawable/right_guide"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -34,7 +34,7 @@
 
     <ImageView
         android:id="@+id/switch_on"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:src="@drawable/switch_on"
         android:layout_centerVertical="true"
