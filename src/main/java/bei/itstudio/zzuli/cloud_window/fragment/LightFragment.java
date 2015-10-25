@@ -18,8 +18,7 @@ import bei.itstudio.zzuli.cloud_window.model.ControlListViewItem;
 /**
  * Created by LUKE on 2015/10/19.
  */
-public class VedioFragment extends Fragment {
-
+public class LightFragment extends Fragment  {
     private View view;
     private ControlListViewAdapter adapter;
     private List<ControlListViewItem> colList = new ArrayList<ControlListViewItem>();
@@ -29,10 +28,10 @@ public class VedioFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if(colList.isEmpty()){
+        if (colList.isEmpty()){
             initVedioColListViewData();
         }
-        adapter = new ControlListViewAdapter(activity,R.layout.control_listview_item,colList);
+        adapter = new ControlListViewAdapter(activity, R.layout.control_listview_item,colList);
     }
 
     @Override
@@ -44,15 +43,15 @@ public class VedioFragment extends Fragment {
     }
 
 
+    /**
+     * 初始化控制区选项信息
+     */
     private void initVedioColListViewData() {
         colList.clear();
         ControlListViewItem col1 = new ControlListViewItem("全部打开",0);
         colList.add(col1);
-        ControlListViewItem col3 = new ControlListViewItem("实时状态",2);
-        colList.add(col3);
-        ControlListViewItem col4 = new ControlListViewItem("监控1", 2);
-        colList.add(col4);
-        ControlListViewItem col5 = new ControlListViewItem("监控2", 1);
-        colList.add(col5);
+        ControlListViewItem col2 = new ControlListViewItem("灯光模式",0);
+        colList.add(col2);
     }
+
 }

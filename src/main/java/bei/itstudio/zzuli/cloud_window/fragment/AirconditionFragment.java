@@ -18,7 +18,7 @@ import bei.itstudio.zzuli.cloud_window.model.ControlListViewItem;
 /**
  * Created by LUKE on 2015/10/19.
  */
-public class VedioFragment extends Fragment {
+public class AirconditionFragment extends Fragment {
 
     private View view;
     private ControlListViewAdapter adapter;
@@ -29,7 +29,7 @@ public class VedioFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if(colList.isEmpty()){
+        if (colList.isEmpty()){
             initVedioColListViewData();
         }
         adapter = new ControlListViewAdapter(activity,R.layout.control_listview_item,colList);
@@ -48,11 +48,14 @@ public class VedioFragment extends Fragment {
         colList.clear();
         ControlListViewItem col1 = new ControlListViewItem("全部打开",0);
         colList.add(col1);
-        ControlListViewItem col3 = new ControlListViewItem("实时状态",2);
+        ControlListViewItem col2 = new ControlListViewItem("温度设置",2);
+        colList.add(col2);
+        ControlListViewItem col3 = new ControlListViewItem("运行状态",2);
         colList.add(col3);
-        ControlListViewItem col4 = new ControlListViewItem("监控1", 2);
+        ControlListViewItem col4 = new ControlListViewItem("空调1", 1);
         colList.add(col4);
-        ControlListViewItem col5 = new ControlListViewItem("监控2", 1);
+        ControlListViewItem col5 = new ControlListViewItem("空调2", 1);
         colList.add(col5);
     }
+
 }

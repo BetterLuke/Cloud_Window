@@ -1,9 +1,12 @@
 package bei.itstudio.zzuli.cloud_window.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -15,7 +18,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 import bei.itstudio.zzuli.cloud_window.R;
+import bei.itstudio.zzuli.cloud_window.fragment.AirconditionFragment;
+import bei.itstudio.zzuli.cloud_window.fragment.LightFragment;
+import bei.itstudio.zzuli.cloud_window.fragment.VedioFragment;
 import bei.itstudio.zzuli.cloud_window.view.CircleImageView;
 
 public class MainActivity extends FragmentActivity implements OnTouchListener {
@@ -86,7 +95,9 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     private VelocityTracker mVelocityTracker;
 
 
-    //侧滑栏的控件。
+    /**
+     * 侧滑栏的控件。
+     */
     CircleImageView userImageView;
     private Button menu_exitButton;
     private Button menu_settingButton;
@@ -94,7 +105,9 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     private View menu_history;
     private View menu_account;
 
-    //content的控件。
+    /**
+     * content的控件。
+     */
     private ImageButton content_menuButton;
     private ImageButton content_notifyButton;
     private ImageView content_notify_redPoint;
@@ -105,7 +118,18 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
     private ImageView selecter_aircondition_cursor;
     private ImageView selecter_light_cursor;
 
-
+    /**
+     * contcont下部的碎片区
+     */
+    private ViewPager mViewPager;
+    private ArrayList fragments;
+    private int currIndex;
+    private FragmentManager fragmentManager;
+    // 使用一个栈记录所有添加的Fragment
+    private Stack<android.app.Fragment> fragmentStack = new Stack<android.app.Fragment>();
+    VedioFragment fragment01 = new VedioFragment();
+    AirconditionFragment fragment02 = new AirconditionFragment();
+    LightFragment fragment03 = new LightFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,10 +139,45 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
         content.setOnTouchListener(this);
         initContent();
         initContentEvent();
+        //initViewPager();
         initMenu();
         initMenuEvent();
+        initFragmentManager();
 
     }
+
+    /**
+     * 初始化碎片管理器
+     */
+    private void initFragmentManager() {
+        fragmentManager = this.getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_area, fragment01);
+        transaction.commit();
+    }
+
+    /**
+     * 初始化selecter下部的viewpager,并初始化内部的fragment
+     *//*
+    private void initViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.myViewPager);
+        fragments = new ArrayList<Fragment>();
+        Fragment vedioFragment = new VedioFragment();
+        Fragment airconditionFragment = new AirconditionFragment();
+        Fragment lightFragment = new LightFragment();
+        fragments.add(vedioFragment);
+        fragments.add(airconditionFragment);
+        fragments.add(lightFragment);
+        mViewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), fragments));
+        mViewPager.setCurrentItem(0);
+        //mViewPager.setOnPageChangeListener();
+    }*/
+
+    /*private void initViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.myViewPager);
+    }*/
+
+
 
     /**
      * 为Mcontent中的按钮添加点击事件
@@ -133,7 +192,6 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
                 } else {
                     scrollToContent();
                 }
-
             }
         });
         content_notifyButton.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +212,9 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
                 selecter_light_cursor.setVisibility(View.VISIBLE);
                 selecter_aircondition_cursor.setVisibility(View.INVISIBLE);
                 selecter_vedio_cursor.setVisibility(View.INVISIBLE);
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_area, fragment03);
+                transaction.commit();
             }
         });
         selecter_vedio.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +223,9 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
                 selecter_light_cursor.setVisibility(View.INVISIBLE);
                 selecter_aircondition_cursor.setVisibility(View.INVISIBLE);
                 selecter_vedio_cursor.setVisibility(View.VISIBLE);
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_area, fragment01);
+                transaction.commit();
             }
         });
         selecter_aircondition.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +234,9 @@ public class MainActivity extends FragmentActivity implements OnTouchListener {
                 selecter_light_cursor.setVisibility(View.INVISIBLE);
                 selecter_aircondition_cursor.setVisibility(View.VISIBLE);
                 selecter_vedio_cursor.setVisibility(View.INVISIBLE);
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_area, fragment02);
+                transaction.commit();
             }
         });
     }
